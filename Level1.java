@@ -203,5 +203,12 @@ public class Level1 extends Level
         addObject(plant4,500,325);
         plant4.setLocation(443,348);
         //
+        speedUp speedup = new speedUp();
+        addObject(speedup,560,678);
+        speedup.setLocation(779,726);
+        key2.setLocation(99,38);
+        removeObject(plant);
+        plant2.setLocation(715,116);
+        plant2.setLocation(590,119);
     }
 }

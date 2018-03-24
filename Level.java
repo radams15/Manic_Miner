@@ -19,7 +19,7 @@ public class Level extends main
     
     public Level()
     {
-        setPaintOrder(Miner.class, Blocks.class, Dangers.class, Key.class);
+        setPaintOrder(mainMenu.class, Miner.class, Blocks.class, Dangers.class, Key.class);
         prepare();
         
         
@@ -32,6 +32,29 @@ public class Level extends main
      */
     private void prepare()
     {
+        mainMenu mainmenu = new mainMenu();
+        addObject(mainmenu,577,425);
+        mainmenu.setLocation(569,424);
+        //
+        VerticalBrick1 verticalbrick1 = new VerticalBrick1();
+        addObject(verticalbrick1,889,203);
+        VerticalBrick1 verticalbrick12 = new VerticalBrick1();
+        addObject(verticalbrick12,884,282);
+        verticalbrick1.setLocation(887,193);
+        verticalbrick12.setLocation(874,320);
+        verticalbrick1.setLocation(876,189);
+        verticalbrick12.setLocation(876,321);
+        
+        VerticalBrick verticalbrick = new VerticalBrick();
+        addObject(verticalbrick,120,195);
+        VerticalBrick verticalbrick2 = new VerticalBrick();
+        addObject(verticalbrick2,159,216);
+        verticalbrick.setLocation(20,202);
+        verticalbrick2.setLocation(23,318);
+        verticalbrick.setLocation(22,200);
+        verticalbrick2.setLocation(23,320);
+        verticalbrick2.setLocation(22,321);
+        //
         Score scoreCounter = new Score();//the current score
         addObject(scoreCounter,804,575);
         scoreCounter.setLocation(809,600);
@@ -45,19 +68,6 @@ public class Level extends main
         addObject(life2,76,490);
         life2.setLocation(84,730);
         this.lives.add(life2);
-        //
-        VerticalBrick verticalbrick = new VerticalBrick();//Walls
-        addObject(verticalbrick,28,211);
-        VerticalBrick verticalbrick2 = new VerticalBrick();
-        addObject(verticalbrick2,799,235);
-        verticalbrick2.setLocation(873,206);
-        verticalbrick.setLocation(22,204);
-        VerticalBrick verticalbrick3 = new VerticalBrick();
-        addObject(verticalbrick3,878,311);
-        verticalbrick3.setLocation(873,319);
-        VerticalBrick verticalbrick4 = new VerticalBrick();
-        addObject(verticalbrick4,97,263);
-        verticalbrick4.setLocation(22,321);
         //
         Gate gate = new Gate();//Gate To Finish
         addObject(gate,843,492);

@@ -25,6 +25,7 @@ public class main extends World
      */
     private void prepare()
     {
+        Greenfoot.setSpeed(50);
         /*GreenfootSound backgroundMusic = new GreenfootSound("sounds/manicMinerMusic.mp3");
         backgroundMusic.playLoop();*/
     }

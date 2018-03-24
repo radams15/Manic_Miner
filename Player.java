@@ -11,10 +11,13 @@ public class Player extends Miner
 {
     //public int lives = 3;
     private int walkSpeed = 3;
+    private int bounceSpeed = 7;
     private int gravitySpeed = 5;
     private int jumpHeight = 100;
     private int score = 0;
-    private int vSpeed;
+    private int maxScore = 400;
+    
+    private int ySpeed;
     private int apexTimer;
     private int keyAmount;
     private Stack<Miner> lives;
@@ -45,7 +48,7 @@ public class Player extends Miner
         if (Greenfoot.isKeyDown("right")){
             move(walkSpeed);
         }
-        if ("up".equals(Greenfoot.getKey())){
+        if ("space".equals(Greenfoot.getKey())){
             jump2(jumpHeight);
         }
         if(isTouching(Key.class)){
@@ -54,11 +57,22 @@ public class Player extends Miner
             scoreCounter.setScore(score);
         }
         if(isTouching(Dangers.class)){
-            //lives--;
             lostLife();
             this.setLocation(65,462);
         }
         
+        if (isTouching(VerticalBrick.class))
+        {
+            move(bounceSpeed);
+        }
+        if (isTouching(VerticalBrick1.class))
+        {
+            move(-bounceSpeed);
+        }
+        if (isTouching(Gate.class) && score == maxScore)
+        {
+            System.out.println("WIN");
+        }
         gravity(10);
     }
     /*public void fall()

@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Hard_Weed extends Weed
+public class Hard_Weed extends Blocks
 {
     /**
      * Act - do whatever the Hard_Weed wants to do. This method is called whenever

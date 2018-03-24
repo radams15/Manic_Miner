@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class HorizontalBrick extends Brick
+public class HorizontalBrick extends Blocks
 {
     /**
      * Act - do whatever the HorizontalBrick wants to do. This method is called whenever

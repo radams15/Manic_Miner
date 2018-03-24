@@ -1,13 +1,15 @@
 #BlueJ class context
 comment0.target=Player
 comment0.text=\n\ Write\ a\ description\ of\ class\ Player\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
-comment1.params=
-comment1.target=void\ act()
+comment1.params=scoreCounter
+comment1.target=Player(Score)
 comment2.params=
-comment2.target=void\ fall()
-comment2.text=public\ void\ fall()\n\ \ \ \ {\ \ \ \n\ \ \ \ \ \ \ \ setLocation(getX(),\ getY()+1);\n}
-comment3.params=ySpeed
-comment3.target=void\ jump2(int)
-comment4.params=height
-comment4.target=void\ jump(int)
-numComments=5
+comment2.target=void\ act()
+comment3.params=gravitySpeed
+comment3.target=void\ gravity(int)
+comment3.text=public\ void\ fall()\n\ \ \ \ {\ \ \ \n\ \ \ \ \ \ \ \ setLocation(getX(),\ getY()+1);\n}
+comment4.params=ySpeed
+comment4.target=void\ jump2(int)
+comment5.params=height
+comment5.target=void\ jump(int)
+numComments=6

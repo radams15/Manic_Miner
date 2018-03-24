@@ -9,7 +9,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class Level extends main
 {
-
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -26,9 +25,9 @@ public class Level extends main
      */
     private void prepare()
     {
-        Score score = new Score();//the current score
-        addObject(score,804,575);
-        score.setLocation(809,600);
+        Score scoreCounter = new Score();//the current score
+        addObject(scoreCounter,804,575);
+        scoreCounter.setLocation(809,600);
         //
         Miner Life1 = new Miner(); // The Lives (Just Picture) (1)
         addObject(Life1,76,490);
@@ -59,7 +58,7 @@ public class Level extends main
         addObject(gate,843,492);
         gate.setLocation(837,467);
         //
-        Player player = new Player(); //The Moving Player
+        Player player = new Player(scoreCounter); //The Moving Player
         addObject(player,85,490);
         player.setLocation(65,462);
         //

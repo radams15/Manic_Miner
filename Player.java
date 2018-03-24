@@ -8,18 +8,26 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Player extends Miner
 {
+    private int walkSpeed = 3;
+    private int gravitySpeed = 5;
     private int vSpeed;
     private int apexTimer;
     private int keyAmount;
+    private Score scoreCounter;
+    
+    public Player(Score scoreCounter)
+    {
+        this.scoreCounter = scoreCounter;
+    }     
     
     public void act()
     {
         Actor Player = getOneIntersectingObject(null);
         if (Greenfoot.isKeyDown("left")){
-            move(-3);
+            move(-walkSpeed);
         }
         if (Greenfoot.isKeyDown("right")){
-            move(3);
+            move(walkSpeed);
         }
         if ("up".equals(Greenfoot.getKey())){
             jump2(50);
@@ -27,26 +35,20 @@ public class Player extends Miner
         if(getOneIntersectingObject(Key.class)!=null){
             
         }
-        fall();
+        gravity(10);
+        
+        scoreCounter.setScore(211);
     }
     /*public void fall()
     {   
         setLocation(getX(), getY()+1);
     }*/
     
-    public void fall()
+    public void gravity(int gravitySpeed)
     {
-        vSpeed+=1; // add gravity
-        int dir=(int)Math.signum(vSpeed); // determine direction
-        for(int step=0; step!=vSpeed; step+=dir) // for each pixel-step
+        if (! isTouching(Blocks.class) )
         {
-            setLocation(getX(), getY()+dir); // move 
-            if(getOneIntersectingObject(null)!=null) // check intersection
-            {
-                setLocation(getX(), getY()-dir); // resistance (step-back)
-                vSpeed=0; // stopped
-                break; // forces exit out of 'for' loop
-            }
+                 setLocation(getX(), getY()+gravitySpeed);
         }
     }
     

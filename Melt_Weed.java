@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Melt_Weed extends Weed
+public class Melt_Weed extends Blocks
 {
     /**
      * Act - do whatever the Melt_Weed wants to do. This method is called whenever

@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.Stack;
 
 /**
  * Write a description of class Player here.
@@ -8,18 +9,33 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Player extends Miner
 {
+    //public int lives = 3;
     private int walkSpeed = 3;
     private int gravitySpeed = 5;
+    private int jumpHeight = 100;
+    private int score = 0;
     private int vSpeed;
     private int apexTimer;
     private int keyAmount;
+    private Stack<Miner> lives;
     private Score scoreCounter;
     
-    public Player(Score scoreCounter)
+    public Player(Score scoreCounter, Stack<Miner> lives)
     {
         this.scoreCounter = scoreCounter;
+        this.lives = lives;
     }     
     
+    public void lostLife()
+    {
+
+        if (! this.lives.empty()){
+            Miner life = this.lives.pop();
+            getWorld().removeObject(life);
+        } else if (this.lives.empty()){
+            System.out.println("done");
+        }
+    }
     public void act()
     {
         Actor Player = getOneIntersectingObject(null);
@@ -30,14 +46,20 @@ public class Player extends Miner
             move(walkSpeed);
         }
         if ("up".equals(Greenfoot.getKey())){
-            jump2(50);
+            jump2(jumpHeight);
         }
-        if(getOneIntersectingObject(Key.class)!=null){
-            
+        if(isTouching(Key.class)){
+            removeTouching(Key.class);
+            score = score + 100;
+            scoreCounter.setScore(score);
         }
-        gravity(10);
+        if(isTouching(Dangers.class)){
+            //lives--;
+            lostLife();
+            this.setLocation(65,462);
+        }
         
-        scoreCounter.setScore(211);
+        gravity(10);
     }
     /*public void fall()
     {   

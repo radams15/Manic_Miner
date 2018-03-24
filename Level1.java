@@ -171,5 +171,37 @@ public class Level1 extends Level
         addObject(robot_restrictor,268,226);
         robot_restrictor.setLocation(261,217);
         //
+        Rock rock = new Rock(); //obstacles
+        addObject(rock,321,73);
+        Rock rock2 = new Rock();
+        addObject(rock2,499,83);
+        rock.setLocation(328,28);
+        rock2.setLocation(518,29);
+        Key key = new Key();
+        addObject(key,261,34);
+        Key key2 = new Key();
+        addObject(key2,394,102);
+        Key key3 = new Key();
+        addObject(key3,572,117);
+        Key key4 = new Key();
+        addObject(key4,715,113);
+        key2.setLocation(520,62);
+        key3.setLocation(840,31);
+        key4.setLocation(682,119);
+        Plant plant = new Plant();
+        addObject(plant,639,111);
+        Plant plant2 = new Plant();
+        addObject(plant2,750,111);
+        plant.setLocation(636,113);
+        key4.setLocation(676,119);
+        HorizontalBrick horizontalbrick2 = new HorizontalBrick();
+        addObject(horizontalbrick2,484,213);
+        horizontalbrick2.setLocation(500,208);
+        Plant plant3 = new Plant();
+        addObject(plant3,592,205);
+        Plant plant4 = new Plant();
+        addObject(plant4,500,325);
+        plant4.setLocation(443,348);
+        //
     }
 }

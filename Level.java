@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.Stack;
 
 /**
  * Write a description of class level here.
@@ -13,10 +14,16 @@ public class Level extends main
      * Constructor for objects of class MyWorld.
      * 
      */
+    
+    private Stack<Miner> lives = new Stack<Miner>();
+    
     public Level()
     {
+        setPaintOrder(Miner.class, Blocks.class, Dangers.class, Key.class);
         prepare();
-        int lives = 3;
+        
+        
+
     }
 
     /**
@@ -29,17 +36,15 @@ public class Level extends main
         addObject(scoreCounter,804,575);
         scoreCounter.setLocation(809,600);
         //
-        Miner Life1 = new Miner(); // The Lives (Just Picture) (1)
-        addObject(Life1,76,490);
-        Life1.setLocation(44,730);
+        Miner life1 = new Miner(); // The Lives (Just Picture) (1)
+        addObject(life1,76,490);
+        life1.setLocation(44,730);
+        this.lives.add(life1);
 
-        Miner Life2 = new Miner(); // The Lives (Just Picture) (2)
-        addObject(Life2,76,490);
-        Life2.setLocation(84,730);
-
-        Miner Life3 = new Miner(); // The Lives (Just Picture) (3)
-        addObject(Life3,76,490);
-        Life3.setLocation(124,730);
+        Miner life2 = new Miner(); // The Lives (Just Picture) (2)
+        addObject(life2,76,490);
+        life2.setLocation(84,730);
+        this.lives.add(life2);
         //
         VerticalBrick verticalbrick = new VerticalBrick();//Walls
         addObject(verticalbrick,28,211);
@@ -58,7 +63,7 @@ public class Level extends main
         addObject(gate,843,492);
         gate.setLocation(837,467);
         //
-        Player player = new Player(scoreCounter); //The Moving Player
+        Player player = new Player(scoreCounter, lives); //The Moving Player
         addObject(player,85,490);
         player.setLocation(65,462);
         //

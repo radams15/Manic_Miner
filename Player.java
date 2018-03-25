@@ -11,24 +11,28 @@ public class Player extends Miner
 {
     //public int lives = 3;
     private int walkSpeed = 3;
+    public int level = 1;
     private int bounceSpeed = 7;
     private int gravitySpeed = 5;
     private int jumpHeight = 100;
     private int score = 0;
-    private int maxScore = 400;
     
+    public boolean endGame;
+    private int maxScore = 400; //ten times the key amount
     private int ySpeed;
     private int apexTimer;
     private int keyAmount;
     private Stack<Miner> lives;
     private Score scoreCounter;
-    
+    public boolean endGame(boolean endGame){
+        return this.endGame = endGame;
+    }
     public Player(Score scoreCounter, Stack<Miner> lives)
     {
         this.scoreCounter = scoreCounter;
         this.lives = lives;
     }     
-    
+
     public void lostLife()
     {
 
@@ -36,7 +40,7 @@ public class Player extends Miner
             Miner life = this.lives.pop();
             getWorld().removeObject(life);
         } else if (this.lives.empty()){
-            System.out.println("done");
+            Greenfoot.stop();
         }
     }
     public void act()
@@ -51,11 +55,18 @@ public class Player extends Miner
         if ("space".equals(Greenfoot.getKey())){
             jump2(jumpHeight);
         }
+        if (endGame == true)
+        {
+            Greenfoot.setWorld(new Level1());
+            Greenfoot.stop();
+        }
+        
         if(isTouching(Key.class)){
             removeTouching(Key.class);
             score = score + 100;
             scoreCounter.setScore(score);
         }
+        
         if(isTouching(Dangers.class)){
             lostLife();
             this.setLocation(65,462);
@@ -69,16 +80,34 @@ public class Player extends Miner
         {
             move(-bounceSpeed);
         }
+        
         if (isTouching(Gate.class) && score == maxScore)
         {
+            checkNextLevel();
             System.out.println("WIN");
         }
         gravity(10);
     }
-    /*public void fall()
-    {   
-        setLocation(getX(), getY()+1);
-    }*/
+        private void checkNextLevel()
+    {
+        try{
+            if (level == 1) {
+                level = 2;
+                this.setLocation(65,462);
+                Greenfoot.setWorld(new Level2());
+                maxScore = 600;
+            }
+            else {
+                level = 1;
+                this.setLocation(65,462);
+                Greenfoot.setWorld(new Level1());
+                maxScore = 400;
+            }
+        } catch(java.lang.IllegalStateException i)
+        {
+            System.out.println(i);
+        }
+    }
     
     public void gravity(int gravitySpeed)
     {
@@ -128,5 +157,10 @@ public class Player extends Miner
                 System.out.println("down");
             }
         }
+    }
+    
+    public void resetWorld()
+    {
+        Greenfoot.setWorld(new main());
     }
 }

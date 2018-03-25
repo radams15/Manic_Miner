@@ -18,7 +18,6 @@ public class main extends World
         super(900, 800, 1);
         prepare();
     }
-
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.

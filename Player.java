@@ -84,7 +84,6 @@ public class Player extends Miner
         if (isTouching(Gate.class) && score == maxScore)
         {
             checkNextLevel();
-            System.out.println("WIN");
         }
         gravity(10);
     }
@@ -92,16 +91,17 @@ public class Player extends Miner
     {
         try{
             if (level == 1) {
-                level = 2;
                 this.setLocation(65,462);
                 Greenfoot.setWorld(new Level2());
-                maxScore = 600;
-            }
-            else {
-                level = 1;
-                this.setLocation(65,462);
-                Greenfoot.setWorld(new Level1());
                 maxScore = 400;
+                level = 2;
+            }
+            else if (level == 2){
+                this.setLocation(65,462);
+                System.out.println("level 2 finished");
+                Greenfoot.setWorld(new Level1());
+                maxScore = 600;
+                level = 1;
             }
         } catch(java.lang.IllegalStateException i)
         {

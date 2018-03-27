@@ -1,4 +1,4 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
 /**
  * Write a description of class mainMenu here.
@@ -12,13 +12,11 @@ public class mainMenu extends Actor
      * Act - do whatever the mainMenu wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public boolean menuScreen = true;
     public void act() 
     {
-        if( (Greenfoot.isKeyDown("space")) || (Greenfoot.mouseClicked(this)) )
+        if(Greenfoot.isKeyDown("space") || Greenfoot.mouseClicked(this) )
         {
-            menuScreen = false;
-            getWorld().removeObject(this);
+           getWorld().removeObject(this); 
         }
     }    
 }

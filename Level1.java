@@ -19,13 +19,6 @@ public class Level1 extends Level
     public Level1()
     {
         prepare();
-        mainMenuToggle();
-    }
-    private void mainMenuToggle()
-    {
-        mainMenu menu1 = new mainMenu();
-        addObject(menu1,569,423);
-        menu1.setLocation(569,423);
     }
     
     /**

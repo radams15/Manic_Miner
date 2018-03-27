@@ -63,9 +63,9 @@ public class Level extends main
      */
     private void prepare()
     {
-        /*mainMenu mainmenu = new mainMenu();
+        mainMenu mainmenu = new mainMenu();
         addObject(mainmenu,577,425);
-        mainmenu.setLocation(569,424);*/
+        mainmenu.setLocation(569,424);
         //
         speedUp speedup = new speedUp();
         addObject(speedup,560,678);

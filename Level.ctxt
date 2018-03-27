@@ -1,15 +1,13 @@
 #BlueJ class context
-comment0.target=Level
-comment0.text=\n\ Write\ a\ description\ of\ class\ level\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.params=
+comment0.target=Level()
 comment1.params=
-comment1.target=Level()
+comment1.target=void\ act()
 comment2.params=
-comment2.target=void\ act()
-comment3.params=
-comment3.target=void\ showGameOver()
-comment4.params=timeBetweenCountdown
-comment4.target=void\ timer(int)
-comment5.params=
-comment5.target=void\ prepare()
-comment5.text=\n\ Prepare\ the\ world\ for\ the\ start\ of\ the\ program.\n\ That\ is\:\ create\ the\ initial\ objects\ and\ add\ them\ to\ the\ world.\n
-numComments=6
+comment2.target=void\ showGameOver()
+comment3.params=timeBetweenCountdown
+comment3.target=void\ timer(int)
+comment4.params=
+comment4.target=void\ prepare()
+comment4.text=\r\n\ Prepare\ the\ world\ for\ the\ start\ of\ the\ program.\r\n\ That\ is\:\ create\ the\ initial\ objects\ and\ add\ them\ to\ the\ world.\r\n
+numComments=5

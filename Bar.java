@@ -3,6 +3,7 @@
 // Last modified: February, 8, 2012
 
 import greenfoot.*;
+import java.awt.Color;
 import java.awt.Font;
 
 /**
